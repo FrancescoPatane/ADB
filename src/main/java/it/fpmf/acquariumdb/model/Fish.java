@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import it.fpmf.acquariumdb.model.enumeration.WaterType;
 
 @Entity
@@ -27,6 +29,7 @@ public class Fish {
 	private Integer minVolume;
 	@Enumerated(EnumType.STRING)
 	private WaterType waterType;
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "familiy_id")
 	private Family family;

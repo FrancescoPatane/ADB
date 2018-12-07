@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Family {
 	
@@ -19,6 +21,7 @@ public class Family {
 	private String name;
 	@Column(length = 5000)
 	private String description;
+	@JsonIgnore
 	@OneToMany(mappedBy = "family")
 	private List<Fish> fishes;
 	
